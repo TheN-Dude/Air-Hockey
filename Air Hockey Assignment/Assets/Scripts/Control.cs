@@ -7,6 +7,7 @@ public class Control : MonoBehaviour
 {
     public GameObject t;
     public GameObject OT;
+    
 
     float currentTime = 0f;
     // Start is called before the first frame update
@@ -21,31 +22,71 @@ public class Control : MonoBehaviour
     {
         currentTime += 1 * Time.deltaTime;
 
+
+        
+
+
         if (currentTime >= 15)
         {
             t.SetActive(true);
             OT.SetActive(false);
+
         }
+
+       
 
         if (currentTime >= 30)
         {
             t.SetActive(false);
             OT.SetActive(true);
+            
         }
 
-        if(currentTime >= 45)
+
+        if (currentTime >= 45)
         {
             t.SetActive(true);
             OT.SetActive(false);
         }
 
-        if(currentTime >= 60)
+      
+
+        if (currentTime >= 60)
         {
             t.SetActive(false);
             OT.SetActive(true);
+           
         }
 
-     // Debug.Log(currentTime);
+        if (currentTime >= 75)
+        {
+            t.SetActive(true);
+            OT.SetActive(false);
+
+        }
+
+        if (currentTime >= 90)
+        {
+            t.SetActive(false);
+            OT.SetActive(true);
+
+        }
+
+        if (currentTime >= 105)
+        {
+            t.SetActive(true);
+            OT.SetActive(false);
+
+        }
+
+        if (currentTime >= 120)
+        {
+            t.SetActive(false);
+            OT.SetActive(true);
+
+        }
+
+        // Debug.Log(currentTime);
 
     }
 }

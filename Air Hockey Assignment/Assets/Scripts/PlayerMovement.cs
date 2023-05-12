@@ -18,9 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     GoalP cs_GoalP;
     GoalE cs_GoalE;
-    int Nscore;
-    public int DataCS = 0;
+    // int Nscore;
+
+    //Ai cs_Ai;
+
     public int CollideScore;
+
 
     //public Transform BoundHold;
 
@@ -50,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         cs_GoalP = GP.GetComponent<GoalP>();
 
         cs_GoalE= GE.GetComponent<GoalE>();
+
+        //cs_Ai = enemy.GetComponent<Ai>();
     }
 
     // Update is called once per frame
@@ -79,30 +84,38 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Right click");
         }
 
-        Debug.Log(DataCS);
+      
 
 
        
 
     }
-// public void OnCollisionEnter2D(Collision2D puck)
- // {
-  //    if (puck.gameObject.tag == "Puck")
-   //   {
-            
-   //       DataCS = (++CollideScore);
+    public void OnCollisionEnter2D(Collision2D puck)
+    {
+      if (puck.gameObject.tag == "Puck")
+      {
 
-   //       if(DataCS >2)
-   //      {
-  //            cs_GoalE.PlayerScore.text = (--Nscore).ToString();
+            CollideScore++;
+
+ 
+
+
+         if(CollideScore >=2)
+         {
+             cs_GoalE.NScore--;
+             cs_GoalE.PlayerScore.text = cs_GoalE.NScore.ToString();
 
                
-    //      }
+         }
+
+            //cs_Ai.CollideScore = 0;
+
+           // Debug.Log(cs_Ai.CollideScore);
 
 
-    //  }
+        }
 
-//  }
+     }
 
   
 

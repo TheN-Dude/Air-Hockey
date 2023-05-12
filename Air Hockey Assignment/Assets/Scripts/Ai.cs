@@ -24,12 +24,21 @@ public class Ai : MonoBehaviour
     public GameObject TB;
     public GameObject BB;
     public GameObject AiRest;
+    public GameObject GP;
+    public GameObject GE;
 
     Vector2 clampedAi;
 
     PlayerMovement cs_PM;
     public GameObject player;
+
+    GoalP cs_GoalP;
+    GoalE cs_GoalE;
+
     
+
+   // public int CollideScore;
+
 
 
     // Start is called before the first frame update
@@ -37,7 +46,11 @@ public class Ai : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cs_PM = player.GetComponent<PlayerMovement>();
-    } 
+
+      //  cs_GoalP = GP.GetComponent<GoalP>();
+
+      //  cs_GoalE = GE.GetComponent<GoalE>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -55,7 +68,7 @@ public class Ai : MonoBehaviour
         Vector2 Lne = Line.transform.position;
         Vector2 TopB = TB.transform.position;
         Vector2 BotB = BB.transform.position;
-        // AiPos = Vector2.Lerp(AiPos, puck.transform.position ,MoveSpeed * Time.deltaTime);
+        // AiPos = Mathf.Lerp(AiPos, puck.transform.position ,MoveSpeed * Time.deltaTime);
 
         MoveSpeed = Random.Range(10f, 20f);
 
@@ -83,17 +96,39 @@ public class Ai : MonoBehaviour
 
     }
 
- // public void OnCollisonEnter(Collision2D puck)
-//  {
- //     if (puck.gameObject.tag == "Puck")
-  //    {
- //         cs_PM.CollideScore = 1;
-
- //     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         
 
- // }
+
+        if (collision.gameObject.tag == "Puck")
+        {
+           // CollideScore++;
+
+           
+
+           // if (CollideScore >= 2)
+          //  {
+               // cs_GoalP.NScore--;
+                //cs_GoalP.AiScore.text = cs_GoalE.NScore.ToString();
+
+
+          //  }
+
+            cs_PM.CollideScore = 0;
+
+            Debug.Log(cs_PM.CollideScore);
+
+
+        }
+
+   
+
+
+    }
+
+
+
 
 
 }

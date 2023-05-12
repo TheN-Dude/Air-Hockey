@@ -13,11 +13,13 @@ public class GoalE : MonoBehaviour
     public GameObject WS;
     public GameObject Puck;
     public GameObject GP;
+    public GameObject Hpts;
 
     GoalP cs_GoalP;
+    PlayerMovement cs_PM;
 
     public TMP_Text PlayerScore;
-    int NScore;
+    public int NScore;
 
     Vector2 Pospuck;
     Vector2 PosPE;
@@ -32,6 +34,7 @@ public class GoalE : MonoBehaviour
         PosP = Ppt.transform.position;
 
         cs_GoalP = GP.GetComponent<GoalP>();
+        cs_PM = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -44,6 +47,8 @@ public class GoalE : MonoBehaviour
             Puck.SetActive(false);
             player.SetActive(false);
             enemy.SetActive(false);
+            Hpts.SetActive(false);
+
 
             enemy.transform.position = PosPE;
             player.transform.position = PosP;
